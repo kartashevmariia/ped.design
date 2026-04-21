@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Maria Kartasheva · Instructional Designer</title>
+    <!-- Montserrat font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #fdf6e8;
+            color: #023149;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3, h4, .step-title, .tagline, .btn, .lang-btn, .case-header h3, .help-header h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+            color: #c5111a;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #7d0907;
+            border-radius: 2px;
+        }
+        .section { 
+            padding: 80px 0; 
+            border-bottom: 1px solid rgba(2, 49, 73, 0.1);
+            background: #fdf6e8;
+        }
+        .section:nth-child(even) {
+            background: #fdf6e8;
+        }
+        .section > h2 {
+            margin-bottom: 2.5rem;
+        }
+        button, .btn, .cta-btn {
+            background: transparent;
+            border: 2px solid #689abb;
+            color: #023149;
+            padding: 12px 28px;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-block;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary { 
+            background: #c5111a;
+            border-color: #c5111a;
+            color: #fdf6e8;
+        }
+        .btn-primary:hover { 
+            background: transparent;
+            color: #023149;
+            border-color: #c5111a;
+            box-shadow: 0 0 12px rgba(197, 17, 26, 0.4);
+        }
+        .btn-outline:hover { 
+            background: #c5111a;
+            border-color: #c5111a;
+            color: #fdf6e8;
+            box-shadow: 0 0 12px rgba(197, 17, 26, 0.4);
+        }
+        /* Новый стиль для Hero кнопок */
+        .hero-btn {
+            background: transparent;
+            border: 2px solid #689abb;
+            color: #023149;
+            width: auto;
+            flex: 0 1 auto;
+        }
+        .hero-btn:hover {
+            background: rgba(104, 154, 187, 0.15);
+            border-color: #689abb;
+            color: #023149;
+            box-shadow: none;
+        }
+        .hero { 
+            min-height: 90vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 40px 0;
+            background: #fdf6e8;
+        }
+        .hero-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 40px; 
+        }
+        .hero-content { flex: 2 1 400px; }
+        .hero-image { flex: 1 1 280px; text-align: center; }
+        .hero-image .photo-placeholder {
+            width: 280px; 
+            height: 280px; 
+            border-radius: 50%;
+            background: #fdf6e8;
+            border: 4px solid #c5111a;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            margin: 0 auto; 
+            box-shadow: 0 15px 30px rgba(197, 17, 26, 0.3);
+            overflow: hidden;
+        }
+        .photo-placeholder img {
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block;
+            transform: scale(1.5); 
+            object-position: center 20%;
+        }
+        .lang-switch {
+            position: absolute; 
+            top: 24px; 
+            right: 24px; 
+            display: flex; 
+            gap: 8px;
+            background: rgba(253, 246, 232, 0.95);
+            padding: 6px 12px; 
+            border-radius: 40px; 
+            backdrop-filter: blur(4px);
+            border: 2px solid #689abb;
+        }
+        .lang-btn {
+            background: none; 
+            border: none; 
+            color: #023149;
+            font-weight: 600; 
+            padding: 4px 8px;
+            cursor: pointer; 
+            opacity: 0.7; 
+            transition: opacity 0.2s; 
+            font-size: 1rem;
+        }
+        .lang-btn.active { 
+            opacity: 1; 
+            color: #c5111a;
+            font-weight: 700;
+        }
+        .lang-btn:disabled { opacity: 0.5; cursor: default; }
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 8px;
+            color: #023149;
+        }
+        .hero .tagline { 
+            font-size: 1.4rem;
+            font-weight: 600; 
+            margin-bottom: 20px; 
+            color: #c5111a;
+        }
+        .hero .sub { 
+            font-size: 1rem;
+            margin-bottom: 32px; 
+            max-width: 700px; 
+            font-weight: 400;
+            color: #023149;
+        }
+        .cta-group { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 16px; 
+            align-items: center; 
+        }
+        .about-text p { 
+            margin-bottom: 1.2rem; 
+            font-size: 1rem;
+            color: #023149;
+        }
+        
+        /* Карусель достижений */
+        .facts-carousel {
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .facts-carousel-wrapper {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            cursor: grab;
+            padding: 10px 0 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .facts-carousel-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .facts-carousel-wrapper:active {
+            cursor: grabbing;
+        }
+        .facts-carousel-wrapper.dragging {
+            scroll-behavior: auto;
+            cursor: grabbing;
+        }
+        .fact-item {
+            flex: 0 0 auto;
+            width: 320px;
+            background: #fdf6e8;
+            padding: 24px 28px;
+            border-radius: 20px;
+            border: 2px solid #689abb;
+            border-left: 6px solid #c5111a;
+            font-weight: 500;
+            color: #023149;
+            transition: transform 0.2s, box-shadow 0.2s;
+            user-select: none;
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .fact-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(104, 154, 187, 0.25);
+            border-color: #689abb;
+        }
+        .fact-item-content {
+            flex: 1;
+        }
+        .fact-item .cert-link {
+            margin-top: 16px;
+            display: inline-block;
+            color: #689abb;
+            text-decoration: none;
+            border-bottom: 2px dashed #689abb;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            width: fit-content;
+        }
+        .fact-item .cert-link i {
+            margin-right: 8px;
+            color: #689abb;
+        }
+        .fact-item .cert-link:hover {
+            color: #023149;
+        }
+        .carousel-hint {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #7d0907;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .carousel-hint i {
+            animation: slideHint 2s ease-in-out infinite;
+        }
+        @keyframes slideHint {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+        
+        .skills-two-col { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+        }
+        .skill-block h3 {
+            font-size: 1.4rem;
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            color: #7d0907;
+        }
+        .portfolio-subheading {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 40px 0 24px;
+            color: #023149;
+        }
+        .section#portfolio .portfolio-subheading:first-of-type {
+            margin-top: 0;
+        }
+        .methodology-list { display: flex; flex-wrap: wrap; gap: 12px; }
+        .method-tag {
+            background: rgba(197, 17, 26, 0.1);
+            border: 2px solid rgba(197, 17, 26, 0.3);
+            padding: 8px 18px; 
+            border-radius: 40px; 
+            font-weight: 500; 
+            color: #7d0907;
+            font-size: 1rem;
+        }
+        .tools-category { margin-bottom: 24px; }
+        .tools-category h4 { 
+            font-size: 1.1rem;
+            margin-bottom: 12px; 
+            color: #c5111a;
+            font-weight: 700; 
+        }
+        .tool-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tool-tag {
+            background: rgba(104, 154, 187, 0.15);
+            padding: 6px 16px; 
+            border-radius: 30px;
+            font-size: 1rem;
+            border: 1px solid rgba(104, 154, 187, 0.3);
+            color: #023149;
+        }
+        .accordion-case {
+            margin-bottom: 20px; 
+            background: #fdf6e8;
+            border-radius: 24px;
+            border: 2px solid #689abb;
+            transition: all 0.2s;
+        }
+        .accordion-case:hover { 
+            border-color: #689abb;
+            box-shadow: 0 5px 20px rgba(104, 154, 187, 0.2);
+        }
+        .case-header {
+            padding: 24px 28px; 
+            cursor: pointer; 
+            display: flex; 
+            flex-wrap: wrap;
+            justify-content: space-between; 
+            align-items: center; 
+            transition: background 0.2s;
+        }
+        .case-header:hover { 
+            background: rgba(104, 154, 187, 0.1);
+        }
+        .case-title-section h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 6px;
+            color: #023149;
+        }
+        .case-meta {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 16px; 
+            color: #7d0907;
+            font-size: 0.95rem;
+            margin-top: 4px; 
+            font-weight: 400;
+        }
+        .case-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+        .case-tag {
+            background: #c5111a;
+            color: #fdf6e8;
+            padding: 4px 14px; 
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .case-description { 
+            margin-top: 10px; 
+            color: #023149;
+            font-style: normal; 
+            font-size: 1rem;
+        }
+        .accordion-icon { 
+            font-size: 1.8rem; 
+            color: #689abb;
+            margin-left: 20px; 
+            transition: transform 0.3s; 
+        }
+        .case-content {
+            padding: 0 28px 28px 28px; 
+            display: none; 
+            border-top: 2px solid rgba(104, 154, 187, 0.4);
+        }
+        .case-content.active { display: block; }
+        .case-detail-grid {
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px 30px; 
+            margin: 20px 0;
+        }
+        .detail-item h4 { 
+            color: #689abb;
+            margin-bottom: 8px; 
+            font-size: 1.3rem; 
+        }
+        .case-content h4 {
+            color: #689abb;
+            margin: 20px 0 12px; 
+            font-size: 1.3rem;
+        }
+        .process-steps { list-style: none; }
+        .process-steps li {
+            margin-bottom: 12px; 
+            padding-left: 24px; 
+            position: relative; 
+            font-weight: 400;
+            color: #023149;
+            font-size: 1rem;
+        }
+        .process-steps li:before { 
+            content: "▹"; 
+            color: #689abb;
+            position: absolute; 
+            left: 0; 
+        }
+        .case-content p {
+            font-size: 1rem;
+        }
+        .material-link {
+            display: inline-block; 
+            margin: 15px 0 10px; 
+            color: #689abb;
+            text-decoration: none; 
+            border-bottom: 2px dashed #689abb;
+            cursor: pointer;
+            font-size: 1rem;
+            width: fit-content;
+        }
+        .material-link i {
+            margin-right: 8px;
+            color: #689abb;
+        }
+        .material-link:hover {
+            color: #023149;
+        }
+        .testimonial {
+            background: rgba(104, 154, 187, 0.12);
+            padding: 20px; 
+            border-radius: 16px;
+            font-style: italic; 
+            margin-top: 10px;
+            color: #023149;
+            border-left: 4px solid #689abb;
+            font-size: 1rem;
+        }
+        
+        /* Карусель для других работ */
+        .other-works-carousel {
+            margin-top: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .other-works-wrapper {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            cursor: grab;
+            padding: 10px 0 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .other-works-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        .other-works-wrapper:active {
+            cursor: grabbing;
+        }
+        .other-works-wrapper.dragging {
+            scroll-behavior: auto;
+            cursor: grabbing;
+        }
+        .work-card {
+            flex: 0 0 auto;
+            width: 340px;
+            background: #fdf6e8;
+            padding: 24px 28px;
+            border-radius: 20px;
+            border: 2px solid #689abb;
+            border-left: 6px solid #c5111a;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+        }
+        .work-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(104, 154, 187, 0.25);
+            border-color: #689abb;
+        }
+        .work-card h4 { 
+            font-size: 1.8rem;
+            margin-bottom: 8px; 
+            font-weight: 700;
+            color: #023149;
+        }
+        .work-meta {
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 16px; 
+            color: #7d0907;
+            font-size: 0.95rem;
+            margin-top: 4px; 
+            font-weight: 400;
+        }
+        .work-card .case-tags { 
+            margin: 12px 0 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-start;
+        }
+        .work-description { 
+            margin-top: 10px; 
+            color: #023149;
+            font-style: normal;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        .work-material-link {
+            display: inline-block; 
+            margin-top: 15px; 
+            color: #689abb;
+            text-decoration: none; 
+            border-bottom: 2px dashed #689abb;
+            cursor: pointer;
+            font-size: 1rem;
+            width: fit-content;
+        }
+        .work-material-link i {
+            margin-right: 8px;
+            color: #689abb;
+        }
+        .work-material-link:hover {
+            color: #023149;
+        }
+        .nda-badge {
+            margin-top: 15px;
+            color: #7d0907;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .nda-badge i {
+            color: #c5111a;
+        }
+        .coming-soon {
+            margin-top: 15px;
+            color: #7d0907;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .roadmap { 
+            display: flex; 
+            justify-content: space-between; 
+            position: relative; 
+            margin: 50px 0 20px; 
+        }
+        .roadmap-line {
+            position: absolute; 
+            top: 40px; 
+            left: 5%; 
+            right: 5%; 
+            height: 3px;
+            background: rgba(104, 154, 187, 0.4);
+            z-index: 0;
+        }
+        .roadmap-step { 
+            flex: 1; 
+            text-align: center; 
+            position: relative; 
+            z-index: 2; 
+            padding: 0 8px; 
+        }
+        .step-marker {
+            width: 60px; 
+            height: 60px; 
+            background: #fdf6e8;
+            border: 3px solid #689abb;
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            margin: 0 auto 20px; 
+            font-weight: 700; 
+            font-size: 1.8rem; 
+            color: #023149;
+            transition: all 0.2s;
+        }
+        .roadmap-step:hover .step-marker { 
+            background: #689abb;
+            color: #fdf6e8;
+            box-shadow: 0 0 20px rgba(104, 154, 187, 0.5);
+        }
+        .step-title { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            margin-bottom: 8px;
+            color: #7d0907;
+        }
+        .step-desc { 
+            font-size: 1rem; 
+            color: #023149;
+            font-weight: 400;
+        }
+        .help-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px; 
+        }
+        .help-accordion {
+            background: #fdf6e8;
+            border-radius: 20px;
+            border: 2px solid #689abb;
+            transition: border-color 0.2s;
+        }
+        .help-accordion:hover { 
+            border-color: #689abb;
+        }
+        .help-header {
+            padding: 20px 24px; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center; 
+            transition: background 0.2s; 
+            border-radius: 20px;
+        }
+        .help-header:hover { 
+            background: rgba(104, 154, 187, 0.15);
+        }
+        .help-header h3 { 
+            font-size: 1.3rem; 
+            font-weight: 700;
+            color: #023149;
+        }
+        .help-sub { 
+            font-size: 0.95rem; 
+            color: #7d0907;
+            margin-top: 4px; 
+            font-weight: 400; 
+        }
+        .help-content {
+            padding: 0 24px 24px 24px; 
+            display: none; 
+            border-top: 2px solid #689abb;
+            font-weight: 400;
+            color: #023149;
+            font-size: 1rem;
+        }
+        .help-content p {
+            margin-top: 16px;
+        }
+        .help-accordion .accordion-icon {
+            font-size: 1.6rem; 
+            color: #689abb;
+            margin-left: 16px; 
+            transition: transform 0.3s;
+        }
+        .contact-flex { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 40px; 
+            align-items: flex-start; 
+        }
+        .contact-info { 
+            font-size: 1rem;
+            color: #023149;
+        }
+        .contact-info i { 
+            width: 32px; 
+            color: #689abb;
+        }
+        .contact-item { 
+            margin-bottom: 20px; 
+            display: flex; 
+            align-items: center; 
+            font-weight: 400; 
+            font-size: 1rem;
+        }
+        .contact-info p {
+            font-size: 1rem;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+        .footer-note { 
+            text-align: center; 
+            padding: 30px 0; 
+            color: #7d0907;
+            opacity: 0.8; 
+            font-size: 0.9rem; 
+            font-weight: 400; 
+        }
+        i { margin-right: 6px; }
+    </style>
+</head>
+<body>
+
+<div class="lang-switch">
+    <button class="lang-btn active" data-lang="ru">RU</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+</div>
+
+<main class="container">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1 data-i18n="hero.name">Мария Карташева</h1>
+                <div class="tagline" data-i18n="hero.tagline">Педагогический дизайнер</div>
+                <div class="sub" data-i18n="hero.sub">Проектирую образовательный опыт с нуля: от анализа до готового курса. Методично, системно, красиво — и с удовольствием.</div>
+                <div class="cta-group">
+                    <a href="#portfolio" class="btn hero-btn"><i class="fas fa-book-open"></i> <span data-i18n="hero.cta1">Смотреть работы</span></a>
+                    <a href="#contact" class="btn hero-btn"><i class="fas fa-phone-alt"></i> <span data-i18n="hero.cta2">Связаться</span></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="photo-placeholder">
+                    <img src="https://i.imgur.com/2refg4B.jpeg" alt="Maria Kartasheva">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О СЕБЕ -->
+    <section class="section">
+        <h2 data-i18n="about.title">О себе</h2>
+        <div class="about-text">
+            <p data-i18n="about.p1">Я пришла в педагогический дизайн через практику: ещё преподавая английский, проектировала корпоративные курсы для Sesderma и Media Instinct Group. В какой-то момент поняла — хочу проектировать обучение в любой области, а не только в одной теме.</p>
+            <p data-i18n="about.p2">Для меня хорошее обучение — то, что легко запоминается. Визуализирую, структурирую, выстраиваю ассоциации — это делает материал живым.</p>
+            <p data-i18n="about.p3">Планирую, но умею адаптироваться. Аргументирую решения теорией или проверенными фактами. Сейчас углубляюсь в UX/UI — и продолжаю учиться.</p>
+        </div>
+        
+        <!-- Карусель достижений -->
+        <div class="facts-carousel">
+            <div class="facts-carousel-wrapper" id="factsCarousel">
+                <div class="fact-item" data-i18n="about.fact1">Красный диплом МПГУ — учитель английского языка</div>
+                <div class="fact-item" data-i18n="about.fact2">Магистратура ВШЭ — педагогический дизайн</div>
+                <div class="fact-item" data-i18n="about.fact3">Курс Eduson для методистов</div>
+                <div class="fact-item" data-i18n="about.fact4">6 лет в преподавании и корпоративном обучении</div>
+                <div class="fact-item">
+                    <div class="fact-item-content" data-i18n="about.vibecoding">Вайбкодинг LXD Hero</div>
+                    <a class="cert-link" href="https://disk.yandex.ru/i/6igYZMGtaelNJQ" target="_blank">
+                        <i class="fas fa-folder-open"></i> <span data-i18n="about.view_cert">Смотреть сертификат</span> →
+                    </a>
+                </div>
+            </div>
+            <div class="carousel-hint">
+                <i class="fas fa-arrow-right"></i>
+                <span data-i18n="carousel.swipe">Листайте вправо →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- НАВЫКИ И ИНСТРУМЕНТЫ -->
+    <section class="section">
+        <h2 data-i18n="skills.title">Навыки и инструменты</h2>
+        <div class="skills-two-col">
+            <!-- Левый блок: Скиллсет -->
+            <div class="skill-block">
+                <h3 data-i18n="skills.skillset">Скиллсет</h3>
+                <div style="display: flex; flex-direction: column;">
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.methodology">Методология и проектирование</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">ADDIE</span>
+                            <span class="tool-tag">SAM</span>
+                            <span class="tool-tag">4C/ID</span>
+                        </div>
+                    </div>
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.lxd">Проектирование образовательного опыта</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Андрагогика</span>
+                            <span class="tool-tag">Педагогика</span>
+                            <span class="tool-tag">Мультимедийное обучение</span>
+                            <span class="tool-tag">Microlearning</span>
+                            <span class="tool-tag">Геймификация</span>
+                            <span class="tool-tag">Ветвлённые сценарии</span>
+                        </div>
+                    </div>
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.content_dev">Разработка контента</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Гайды и чеклисты</span>
+                            <span class="tool-tag">Инструкции</span>
+                            <span class="tool-tag">Лонг- и шорт-риды</span>
+                            <span class="tool-tag">Сценарии уроков, МК</span>
+                            <span class="tool-tag">Оценочные материалы (тесты, квизы и пр.)</span>
+                        </div>
+                    </div>
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.analytics">Аналитика</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Конкурентный анализ</span>
+                            <span class="tool-tag">Анализ ЦА (глубинные интервью, опросы)</span>
+                            <span class="tool-tag">Анализ и расчет рынка</span>
+                            <span class="tool-tag">Работа с метриками (COR, CSI, NPS, LTV)</span>
+                            <span class="tool-tag">JTBD</span>
+                            <span class="tool-tag">Работа с ОС</span>
+                        </div>
+                    </div>
+                    <!-- Искусственный интеллект перемещён сюда (перед нормативной базой) -->
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.ai">Искусственный интеллект</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Изображения</span>
+                            <span class="tool-tag">Видео</span>
+                            <span class="tool-tag">Тексты</span>
+                            <span class="tool-tag">ИИ-аватары</span>
+                            <span class="tool-tag">ИИ-агенты</span>
+                            <span class="tool-tag">Вайбкодинг</span>
+                        </div>
+                    </div>
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.standards">Нормативная база</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">ФГОС НОО</span>
+                            <span class="tool-tag">ФГОС ООО</span>
+                            <span class="tool-tag">ФГОС СОО</span>
+                        </div>
+                    </div>
+                    <div class="tools-category">
+                        <h4 data-i18n="skills.additional">Дополнительно</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Английский язык – C1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правый блок: Инструменты -->
+            <div class="skill-block">
+                <h3 data-i18n="skills.tools_title">Инструменты</h3>
+                <div class="tools-category"><h4 data-i18n="skills.design">Проектирование</h4><div class="tool-tags" data-i18n="skills.design_tools">Miro,FigJam,SBoard,XMind</div></div>
+                <div class="tools-category"><h4 data-i18n="skills.visual">Дизайн</h4><div class="tool-tags" data-i18n="skills.visual_tools">Figma,Canva,Adobe Illustrator,PowerPoint</div></div>
+                <div class="tools-category"><h4 data-i18n="skills.authoring">Разработка курсов</h4><div class="tool-tags" data-i18n="skills.authoring_tools">iSpring Suite,Genially</div></div>
+                <div class="tools-category"><h4 data-i18n="skills.lms">LMS</h4><div class="tool-tags" data-i18n="skills.lms_tools">Moodle,GetCourse</div></div>
+                <div class="tools-category"><h4>Офисные пакеты</h4><div class="tool-tags"><span class="tool-tag">MS Office</span><span class="tool-tag">Google Workspace</span></div></div>
+                <div class="tools-category"><h4 data-i18n="skills.pm">Управление</h4><div class="tool-tags" data-i18n="skills.pm_tools">Notion,Trello</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОРТФОЛИО -->
+    <section class="section" id="portfolio">
+        <h2 data-i18n="portfolio.title">Портфолио</h2>
+        <h3 class="portfolio-subheading" data-i18n="portfolio.main">Основные кейсы</h3>
+        
+        <!-- Kerama Marazzi -->
+        <div class="accordion-case">
+            <div class="case-header" data-target="case1">
+                <div class="case-title-section">
+                    <h3>Kerama Marazzi</h3>
+                    <div class="case-meta"><span data-i18n="case1.date">апрель 2026</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="case1.tag1">Разработка с нуля</span><span class="case-tag" data-i18n="case1.tag2">Корпоративное обучение</span><span class="case-tag" data-i18n="case1.tag3">Розничные продажи</span></div>
+                    <div class="case-description" data-i18n="case1.desc">Электронный курс по стандартам розничных продаж</div>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="case-content" id="case1">
+                <div class="case-detail-grid">
+                    <div class="detail-item"><h4 data-i18n="case.task">Задача</h4><p data-i18n="case1.task">Разработать электронный курс по стандартам розничных продаж для стажёров шоурума Kerama Marazzi. За 60 минут — сформировать целостное понимание всех этапов продажи и довести базовые навыки до автоматизма.</p></div>
+                    <div class="detail-item"><h4 data-i18n="case.audience">Аудитория</h4><p data-i18n="case1.audience">Менеджеры розничных продаж, 30–40 лет, 1000+ человек. Базовый уровень: этапы продаж знают теоретически, но пропускают ключевые шаги.</p></div>
+                </div>
+                <h4 data-i18n="case.process">Процесс</h4>
+                <ul class="process-steps">
+                    <li data-i18n="case1.step1"><strong>Образовательные результаты</strong> — определены измеримые результаты под 5 модулей: установление контакта, выявление потребностей, презентация, работа с возражениями, оформление заказа.</li>
+                    <li data-i18n="case1.step2"><strong>Теоретическое содержание</strong> — учебный контент на основе материалов заказчика; позиционирование пользователя как опытного менеджера.</li>
+                    <li data-i18n="case1.step3"><strong>Тесты и тренажёры</strong> — стартовый квиз для определения стиля продаж, диалоговые тренажёры с гибкой шкалой оценки, финальный босс-кейс с разными типами покупателей.</li>
+                    <li data-i18n="case1.step4"><strong>Визуальное оформление и дизайн</strong> — вёрстка в iSpring Suite, визуал в Canva, бесшовный переход между блоками.</li>
+                </ul>
+                <h4 data-i18n="case.tools">Инструменты</h4>
+                <p>iSpring Suite · Canva · Miro · Gemini</p>
+                <a class="material-link" href="https://disk.yandex.ru/d/eS5POu34qgN45Q" target="_blank"><i class="fas fa-folder-open"></i> <span data-i18n="case.open_materials">Открыть материалы →</span></a>
+                <h4 data-i18n="case.feedback">Отзыв</h4>
+                <div class="testimonial" data-i18n="case1.testimonial">«…» — Екатерина Шуленина, руководитель направления ДО, Kerama Marazzi</div>
+                <h4 data-i18n="case.result">Результат</h4>
+                <p data-i18n="case1.result">Готовый курс 60 минут: 5 модулей, диалоговые тренажёры, босс-кейс, персонализированная обратная связь.</p>
+            </div>
+        </div>
+
+        <!-- Highland Gold -->
+        <div class="accordion-case">
+            <div class="case-header" data-target="case2">
+                <div class="case-title-section">
+                    <h3>Highland Gold (Ареал)</h3>
+                    <div class="case-meta"><span data-i18n="case2.date">октябрь – декабрь 2025</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="case2.tag1">Разработка с нуля</span><span class="case-tag" data-i18n="case2.tag2">Детское образование</span><span class="case-tag" data-i18n="case2.tag3">Профориентация</span></div>
+                    <div class="case-description" data-i18n="case2.desc">Профориентационная программа для школьников горно-металлургической отрасли</div>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="case-content" id="case2">
+                <div class="case-detail-grid">
+                    <div><h4 data-i18n="case.task">Задача</h4><p data-i18n="case2.task">Разработать программу внеурочных занятий для 8–9 классов, знакомящую с инженерными профессиями в золотодобыче — через науку, эксперимент и живое взаимодействие.</p></div>
+                    <div><h4 data-i18n="case.audience">Аудитория</h4><p data-i18n="case2.audience">Школьники 8–9 классов, нулевая база знаний о горной промышленности. Основной вызов — сделать сложные отраслевые процессы понятными и интересными.</p></div>
+                </div>
+                <h4 data-i18n="case.process">Процесс</h4>
+                <ul class="process-steps">
+                    <li data-i18n="case2.step1"><strong>Анализ зарубежных практик</strong> — изучение профориентационных STEM-программ горных и инженерных компаний, выявление принципов вовлечения подростков.</li>
+                    <li data-i18n="case2.step2"><strong>Проектирование структуры программы</strong> — трёхэтапная модель: Знакомство → Погружение → Развитие.</li>
+                    <li data-i18n="case2.step3"><strong>Разработка уроков (этап «Знакомство»)</strong> — урок-исследование «Магия пузырьков» (флотация, 60 минут) и финальная встреча — мини-конкурс инноваций с презентацией идей.</li>
+                    <li data-i18n="case2.step4"><strong>Методический пакет</strong> — полный комплект материалов: сценарии, презентации, оценочные листы.</li>
+                </ul>
+                <h4 data-i18n="case.tools">Инструменты</h4>
+                <p>Google Workspace (Docs, Slides, Drive)</p>
+                <a class="material-link" href="https://disk.yandex.ru/d/7_EOZeUcIZ_ICg" target="_blank"><i class="fas fa-folder-open"></i> <span data-i18n="case.open_materials">Открыть материалы →</span></a>
+                <h4 data-i18n="case.result">Результат</h4>
+                <p data-i18n="case2.result">Профориентационная программа с методическим пакетом, выстраивающая путь от нулевого интереса к осознанному выбору профессии, с карьерной возможностью от компании.</p>
+            </div>
+        </div>
+
+        <!-- НИУ ВШЭ -->
+        <div class="accordion-case">
+            <div class="case-header" data-target="case3">
+                <div class="case-title-section">
+                    <h3 data-i18n="case3.title">ВШЭ</h3>
+                    <div class="case-meta"><span data-i18n="case3.date">март – апрель 2026</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="case3.tag1">Разработка контента</span><span class="case-tag" data-i18n="case3.tag2">Высшее образование</span><span class="case-tag" data-i18n="case3.tag3">IT / ИИ</span></div>
+                    <div class="case-description" data-i18n="case3.desc">Доработка и адаптация онлайн-курса по использованию ИИ</div>
+                </div>
+                <i class="fas fa-chevron-down accordion-icon"></i>
+            </div>
+            <div class="case-content" id="case3">
+                <div class="case-detail-grid">
+                    <div><h4 data-i18n="case.task">Задача</h4><p data-i18n="case3.task">Доработка учебного контента курса по ИИ в образовании: замена недоступных сервисов, универсализация формулировок заданий, приведение к единому стандарту оформления.</p></div>
+                    <div><h4 data-i18n="case.audience">Аудитория</h4><p data-i18n="case3.audience">Студенты и преподаватели НИУ ВШЭ.</p></div>
+                </div>
+                <h4 data-i18n="case.process">Процесс</h4>
+                <ul class="process-steps">
+                    <li data-i18n="case3.step1"><strong>Аудит ИИ-сервисов</strong> — проверка актуальности сервисов в курсе, подбор 3 рабочих аналогов для каждого неработающего.</li>
+                    <li data-i18n="case3.step2"><strong>Универсализация формулировок</strong> — разработка трёх универсальных формулировок для каждого элемента курса, соответствующих всем требованиям.</li>
+                    <li data-i18n="case3.step3"><strong>Оформление кейсов и заданий</strong> — приведение всех материалов к единому шаблону.</li>
+                    <li data-i18n="case3.step4"><strong>Проверка логики курса</strong> — сохранение целостности учебной структуры после изменений.</li>
+                </ul>
+                <h4 data-i18n="case.tools">Инструменты</h4>
+                <p>LMS Moodle · Google Workspace (Docs, Drive)</p>
+                <a class="material-link" href="https://disk.yandex.ru/d/f2-FnoJ6MnTMTQ" target="_blank"><i class="fas fa-folder-open"></i> <span data-i18n="case.open_materials">Открыть материалы →</span></a>
+                <h4 data-i18n="case.result">Результат</h4>
+                <p data-i18n="case3.result">Курс доработан: неактуальные сервисы заменены, формулировки универсализированы, контент приведён к единому стандарту без нарушения учебной логики.</p>
+            </div>
+        </div>
+
+        <h3 class="portfolio-subheading" data-i18n="portfolio.other">Другие работы</h3>
+        
+        <!-- Карусель других работ -->
+        <div class="other-works-carousel">
+            <div class="other-works-wrapper" id="otherWorksCarousel">
+                <div class="work-card" onclick="alert('Skillbox details')">
+                    <h4>Skillbox</h4>
+                    <div class="work-meta"><span data-i18n="other1.date">октябрь – декабрь 2025</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="other1.tag1">Рефакторинг</span><span class="case-tag" data-i18n="other1.tag2">EdTech</span><span class="case-tag" data-i18n="other1.tag3">Цифровая трансформация</span></div>
+                    <div class="work-description" data-i18n="other1.desc">Рефакторинг курса «Лидер цифровой трансформации»: аудит, методические рекомендации, пересборка модуля.</div>
+                    <a class="work-material-link" href="https://disk.yandex.ru/d/nSnB02v2zEnLpA" target="_blank" onclick="event.stopPropagation()"><i class="fas fa-folder-open"></i> <span data-i18n="case.open_materials">Открыть материалы →</span></a>
+                </div>
+                <div class="work-card" onclick="alert('Central University details')">
+                    <h4 data-i18n="other2.title">Центральный университет</h4>
+                    <div class="work-meta"><span data-i18n="other2.date">март – май 2026</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="other2.tag1">Аналитика</span><span class="case-tag" data-i18n="other2.tag2">Высшее образование</span><span class="case-tag" data-i18n="other2.tag3">IT-образование</span></div>
+                    <div class="work-description" data-i18n="other2.desc">Сравнительный анализ программ зарубежных IT-вузов, отчёт с визуализациями и гипотезами.</div>
+                    <div class="coming-soon"><i class="fas fa-hourglass-half"></i> <span data-i18n="other2.coming_soon">скоро появятся</span></div>
+                </div>
+                <div class="work-card" onclick="alert('Проект под NDA')">
+                    <h4 data-i18n="other3.title">ВШЭ</h4>
+                    <div class="work-meta"><span data-i18n="other3.date">февраль – апрель 2026</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="other3.tag1">Аналитика</span><span class="case-tag" data-i18n="other3.tag2">Высшее образование</span><span class="case-tag" data-i18n="other3.tag3">IT-образование</span></div>
+                    <div class="work-description" data-i18n="other3.desc">Экспертиза программы: проведение глубинных интервью, их транскрибирование, анализ с целью выявить сильные и слабые стороны ОП и представить их заказчику.</div>
+                    <div class="nda-badge"><i class="fas fa-lock"></i> <span data-i18n="other3.nda">Проект под NDA</span></div>
+                </div>
+                <!-- Новый кейс Taratorkina School -->
+                <div class="work-card" onclick="alert('Проект под NDA')">
+                    <h4 data-i18n="other4.title">Taratorkina School</h4>
+                    <div class="work-meta"><span data-i18n="other4.date">октябрь 2022 – ноябрь 2025</span></div>
+                    <div class="case-tags"><span class="case-tag" data-i18n="other4.tag1">Разработка с нуля</span><span class="case-tag" data-i18n="other4.tag2">Корпоративное обучение</span><span class="case-tag" data-i18n="other4.tag3">Иностранные языки</span></div>
+                    <div class="work-description" data-i18n="other4.desc">Разработка курсов по English for Marketing и Business English (уровни A1-B2). Полный цикл проектирования курсов (от анализа ЦА до сбора и анализа ОС после реализации курса).</div>
+                    <div class="nda-badge"><i class="fas fa-lock"></i> <span data-i18n="other4.nda">Проект под NDA</span></div>
+                </div>
+            </div>
+            <div class="carousel-hint">
+                <i class="fas fa-arrow-right"></i>
+                <span data-i18n="carousel.swipe">Листайте вправо →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК Я РАБОТАЮ -->
+    <section class="section">
+        <h2 data-i18n="roadmap.title">Как я работаю</h2>
+        <div class="roadmap">
+            <div class="roadmap-line"></div>
+            <div class="roadmap-step"><div class="step-marker">1</div><div class="step-title" data-i18n="roadmap.step1_title">Анализ</div><div class="step-desc" data-i18n="roadmap.step1_desc">Изучаю аудиторию, конкурентов и рынок — прежде чем думать о форме.</div></div>
+            <div class="roadmap-step"><div class="step-marker">2</div><div class="step-title" data-i18n="roadmap.step2_title">Структура</div><div class="step-desc" data-i18n="roadmap.step2_desc">Выстраиваю логику курса: результаты, последовательность, нагрузку.</div></div>
+            <div class="roadmap-step"><div class="step-marker">3</div><div class="step-title" data-i18n="roadmap.step3_title">Дизайн</div><div class="step-desc" data-i18n="roadmap.step3_desc">Перевожу структуру в визуальный язык: схемы, макеты.</div></div>
+            <div class="roadmap-step"><div class="step-marker">4</div><div class="step-title" data-i18n="roadmap.step4_title">Разработка</div><div class="step-desc" data-i18n="roadmap.step4_desc">Собираю курс в инструменте, слежу за соответствием методике.</div></div>
+            <div class="roadmap-step"><div class="step-marker">5</div><div class="step-title" data-i18n="roadmap.step5_title">Оценка</div><div class="step-desc" data-i18n="roadmap.step5_desc">Проверяю результат, итерирую при необходимости.</div></div>
+        </div>
+    </section>
+
+    <!-- С ЧЕМ Я МОГУ ПОМОЧЬ -->
+    <section class="section">
+        <h2 data-i18n="help.title">С чем я могу помочь</h2>
+        <div class="help-grid" id="help-accordions"></div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="section" id="contact">
+        <h2 data-i18n="contact.title">Контакты</h2>
+        <div class="contact-flex">
+            <div class="contact-info">
+                <p data-i18n="contact.text">Готова обсудить любое предложение. Свяжитесь со мной:</p>
+                <div class="contact-item"><i class="fas fa-phone-alt"></i> <span>+7 (977) 110-86-61</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> <span>kartashevm-edtech@yandex.ru</span></div>
+                <div class="contact-item"><i class="fab fa-telegram-plane"></i> <span>@mash1naa</span></div>
+                <div class="resume-btn">
+                    <a href="https://docs.google.com/document/d/1Hw3wdGbbvDQdyx_AHJGP6Po2th-jg2-1p_5ULAOJOeI/edit?usp=sharing" target="_blank" class="btn btn-outline"><i class="fas fa-eye"></i> <span data-i18n="contact.resume">Смотреть резюме</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="footer-note">© 2026 Maria Kartasheva · Instructional Designer</div>
+</main>
+
+<script>
+    const translations = {
+        ru: {
+            'hero.name': 'Мария Карташева',
+            'hero.tagline': 'Педагогический дизайнер',
+            'hero.sub': 'Проектирую образовательный опыт с нуля: от анализа до готового курса. Методично, системно, красиво — и с удовольствием.',
+            'hero.cta1': 'Смотреть работы',
+            'hero.cta2': 'Связаться',
+            'about.title': 'О себе',
+            'about.p1': 'Я пришла в педагогический дизайн через практику: ещё преподавая английский, проектировала корпоративные курсы для Sesderma и Media Instinct Group. В какой-то момент поняла — хочу проектировать обучение в любой области, а не только в одной теме.',
+            'about.p2': 'Для меня хорошее обучение — то, что легко запоминается. Визуализирую, структурирую, выстраиваю ассоциации — это делает материал живым.',
+            'about.p3': 'Планирую, но умею адаптироваться. Аргументирую решения теорией или проверенными фактами. Сейчас углубляюсь в UX/UI — и продолжаю учиться.',
+            'about.fact1': 'Красный диплом МПГУ — учитель английского языка',
+            'about.fact2': 'Магистратура ВШЭ — педагогический дизайн',
+            'about.fact3': 'Курс Eduson для методистов',
+            'about.fact4': '6 лет в преподавании и корпоративном обучении',
+            'about.vibecoding': 'Вайбкодинг LXD Hero',
+            'about.view_cert': 'Смотреть сертификат',
+            'carousel.swipe': 'Листайте вправо →',
+            'skills.title': 'Навыки и инструменты',
+            'skills.skillset': 'Скиллсет',
+            'skills.methodology': 'Методология и проектирование',
+            'skills.lxd': 'Проектирование образовательного опыта',
+            'skills.content_dev': 'Разработка контента',
+            'skills.analytics': 'Аналитика',
+            'skills.standards': 'Нормативная база',
+            'skills.additional': 'Дополнительно',
+            'skills.ai': 'Искусственный интеллект',
+            'skills.tools_title': 'Инструменты',
+            'skills.design': 'Проектирование',
+            'skills.design_tools': 'Miro,FigJam,SBoard,XMind',
+            'skills.visual': 'Дизайн',
+            'skills.visual_tools': 'Figma,Canva,Adobe Illustrator,PowerPoint',
+            'skills.authoring': 'Разработка курсов',
+            'skills.authoring_tools': 'iSpring Suite,Genially',
+            'skills.lms': 'LMS',
+            'skills.lms_tools': 'Moodle,GetCourse',
+            'skills.pm': 'Управление',
+            'skills.pm_tools': 'Notion,Trello',
+            'portfolio.title': 'Портфолио',
+            'portfolio.main': 'Основные кейсы',
+            'portfolio.other': 'Другие работы',
+            'case.task': 'Задача',
+            'case.audience': 'Аудитория',
+            'case.process': 'Процесс',
+            'case.tools': 'Инструменты',
+            'case.feedback': 'Отзыв',
+            'case.result': 'Результат',
+            'case.open_materials': 'Открыть материалы →',
+            'case1.date': 'апрель 2026',
+            'case1.tag1': 'Разработка с нуля',
+            'case1.tag2': 'Корпоративное обучение',
+            'case1.tag3': 'Розничные продажи',
+            'case1.desc': 'Электронный курс по стандартам розничных продаж',
+            'case1.task': 'Разработать электронный курс по стандартам розничных продаж для стажёров шоурума Kerama Marazzi. За 60 минут — сформировать целостное понимание всех этапов продажи и довести базовые навыки до автоматизма.',
+            'case1.audience': 'Менеджеры розничных продаж, 30–40 лет, 1000+ человек. Базовый уровень: этапы продаж знают теоретически, но пропускают ключевые шаги.',
+            'case1.step1': '<strong>Образовательные результаты</strong> — определены измеримые результаты под 5 модулей: установление контакта, выявление потребностей, презентация, работа с возражениями, оформление заказа.',
+            'case1.step2': '<strong>Теоретическое содержание</strong> — учебный контент на основе материалов заказчика; позиционирование пользователя как опытного менеджера.',
+            'case1.step3': '<strong>Тесты и тренажёры</strong> — стартовый квиз для определения стиля продаж, диалоговые тренажёры с гибкой шкалой оценки, финальный босс-кейс с разными типами покупателей.',
+            'case1.step4': '<strong>Визуальное оформление и дизайн</strong> — вёрстка в iSpring Suite, визуал в Canva, бесшовный переход между блоками.',
+            'case1.testimonial': '«…» — Екатерина Шуленина, руководитель направления ДО, Kerama Marazzi',
+            'case1.result': 'Готовый курс 60 минут: 5 модулей, диалоговые тренажёры, босс-кейс, персонализированная обратная связь.',
+            'case2.date': 'октябрь – декабрь 2025',
+            'case2.tag1': 'Разработка с нуля',
+            'case2.tag2': 'Детское образование',
+            'case2.tag3': 'Профориентация',
+            'case2.desc': 'Профориентационная программа для школьников горно-металлургической отрасли',
+            'case2.task': 'Разработать программу внеурочных занятий для 8–9 классов, знакомящую с инженерными профессиями в золотодобыче — через науку, эксперимент и живое взаимодействие.',
+            'case2.audience': 'Школьники 8–9 классов, нулевая база знаний о горной промышленности. Основной вызов — сделать сложные отраслевые процессы понятными и интересными.',
+            'case2.step1': '<strong>Анализ зарубежных практик</strong> — изучение профориентационных STEM-программ горных и инженерных компаний, выявление принципов вовлечения подростков.',
+            'case2.step2': '<strong>Проектирование структуры программы</strong> — трёхэтапная модель: Знакомство → Погружение → Развитие.',
+            'case2.step3': '<strong>Разработка уроков (этап «Знакомство»)</strong> — урок-исследование «Магия пузырьков» (флотация, 60 минут) и финальная встреча — мини-конкурс инноваций с презентацией идей.',
+            'case2.step4': '<strong>Методический пакет</strong> — полный комплект материалов: сценарии, презентации, оценочные листы.',
+            'case2.result': 'Профориентационная программа с методическим пакетом, выстраивающая путь от нулевого интереса к осознанному выбору профессии, с карьерной возможностью от компании.',
+            'case3.title': 'ВШЭ',
+            'case3.date': 'март – апрель 2026',
+            'case3.tag1': 'Разработка контента',
+            'case3.tag2': 'Высшее образование',
+            'case3.tag3': 'IT / ИИ',
+            'case3.desc': 'Доработка и адаптация онлайн-курса по использованию ИИ',
+            'case3.task': 'Доработка учебного контента курса по ИИ в образовании: замена недоступных сервисов, универсализация формулировок заданий, приведение к единому стандарту оформления.',
+            'case3.audience': 'Студенты и преподаватели НИУ ВШЭ.',
+            'case3.step1': '<strong>Аудит ИИ-сервисов</strong> — проверка актуальности сервисов в курсе, подбор 3 рабочих аналогов для каждого неработающего.',
+            'case3.step2': '<strong>Универсализация формулировок</strong> — разработка трёх универсальных формулировок для каждого элемента курса, соответствующих всем требованиям.',
+            'case3.step3': '<strong>Оформление кейсов и заданий</strong> — приведение всех материалов к единому шаблону.',
+            'case3.step4': '<strong>Проверка логики курса</strong> — сохранение целостности учебной структуры после изменений.',
+            'case3.result': 'Курс доработан: неактуальные сервисы заменены, формулировки универсализированы, контент приведён к единому стандарту без нарушения учебной логики.',
+            'other1.date': 'октябрь – декабрь 2025',
+            'other1.tag1': 'Рефакторинг',
+            'other1.tag2': 'EdTech',
+            'other1.tag3': 'Цифровая трансформация',
+            'other1.desc': 'Рефакторинг курса «Лидер цифровой трансформации»: аудит, методические рекомендации, пересборка модуля.',
+            'other2.title': 'Центральный университет',
+            'other2.date': 'март – май 2026',
+            'other2.tag1': 'Аналитика',
+            'other2.tag2': 'Высшее образование',
+            'other2.tag3': 'IT-образование',
+            'other2.desc': 'Сравнительный анализ программ зарубежных IT-вузов, отчёт с визуализациями и гипотезами.',
+            'other2.coming_soon': 'скоро появятся',
+            'other3.title': 'ВШЭ',
+            'other3.date': 'февраль – апрель 2026',
+            'other3.tag1': 'Аналитика',
+            'other3.tag2': 'Высшее образование',
+            'other3.tag3': 'IT-образование',
+            'other3.desc': 'Экспертиза программы: проведение глубинных интервью, их транскрибирование, анализ с целью выявить сильные и слабые стороны ОП и представить их заказчику.',
+            'other3.nda': 'Проект под NDA',
+            'other4.title': 'Taratorkina School',
+            'other4.date': 'октябрь 2022 – ноябрь 2025',
+            'other4.tag1': 'Разработка с нуля',
+            'other4.tag2': 'Корпоративное обучение',
+            'other4.tag3': 'Иностранные языки',
+            'other4.desc': 'Разработка курсов по English for Marketing и Business English (уровни A1-B2). Полный цикл проектирования курсов (от анализа ЦА до сбора и анализа ОС после реализации курса).',
+            'other4.nda': 'Проект под NDA',
+            'roadmap.title': 'Как я работаю',
+            'roadmap.step1_title': 'Анализ',
+            'roadmap.step1_desc': 'Изучаю аудиторию, конкурентов и рынок — прежде чем думать о форме.',
+            'roadmap.step2_title': 'Структура',
+            'roadmap.step2_desc': 'Выстраиваю логику курса: результаты, последовательность, нагрузку.',
+            'roadmap.step3_title': 'Дизайн',
+            'roadmap.step3_desc': 'Перевожу структуру в визуальный язык: схемы, макеты.',
+            'roadmap.step4_title': 'Разработка',
+            'roadmap.step4_desc': 'Собираю курс в инструменте, слежу за соответствием методике.',
+            'roadmap.step5_title': 'Оценка',
+            'roadmap.step5_desc': 'Проверяю результат, итерирую при необходимости.',
+            'help.title': 'С чем я могу помочь',
+            'help1.title': 'Анализ аудитории, рынка и конкурентов',
+            'help1.sub': 'Исследование контекста до старта',
+            'help1.desc': 'Провожу комплексное предпроектное исследование: ЦА, разрыв компетенций, мотивационный профиль, конкурентная среда. Результат — аналитическая база.',
+            'help2.title': 'Проектирование курса с нуля',
+            'help2.sub': 'От результатов до структуры',
+            'help2.desc': 'Формулирую измеримые образовательные результаты по таксономии Блума-Андерсона, проектирую архитектуру курса (ADDIE/SAM/4C/ID).',
+            'help3.title': 'Обновление и рефакторинг',
+            'help3.sub': 'Аудит, переработка, адаптация',
+            'help3.desc': 'Методический аудит курса, выявление разрывов, рекомендации по доработке, пересборка модуля как референс.',
+            'help4.title': 'Визуальный язык и оформление',
+            'help4.sub': 'Дизайн, шаблоны, инфографика',
+            'help4.desc': 'Разрабатываю визуальную систему курса с учётом принципов Майера: иерархия, инфографика, шаблоны в Figma/Canva/Illustrator.',
+            'help5.title': 'Сборка курса в инструменте',
+            'help5.sub': 'iSpring · Genially · Moodle',
+            'help5.desc': 'Реализую контент с интерактивом: тесты, диалоговые тренажёры, сценарные кейсы. Методическая обоснованность.',
+            'help6.title': 'Аналитическое исследование',
+            'help6.sub': 'Рынок, зарубежный опыт',
+            'help6.desc': 'Desk research, сравнительные таблицы, визуализация данных, гипотезы для продуктовых команд.',
+            'contact.title': 'Контакты',
+            'contact.text': 'Готова обсудить любое предложение. Свяжитесь со мной:',
+            'contact.resume': 'Смотреть резюме'
+        },
+        en: {
+            'hero.name': 'Maria Kartasheva',
+            'hero.tagline': 'Instructional Designer',
+            'hero.sub': 'I design learning experiences from scratch: from analysis to a complete course. Methodical, systematic, beautiful — and with pleasure.',
+            'hero.cta1': 'View works',
+            'hero.cta2': 'Contact',
+            'about.title': 'About',
+            'about.p1': 'I came to instructional design through practice: while teaching English, I designed corporate courses for Sesderma and Media Instinct Group. At some point I realized — I want to design learning in any field, not just one topic.',
+            'about.p2': 'For me, good learning is what is easily remembered. I visualize, structure, build associations — this makes the material alive.',
+            'about.p3': 'I plan, but I can adapt. I argue decisions with theory or proven facts. Currently deepening my knowledge in UX/UI — and continuing to learn.',
+            'about.fact1': 'Honours degree, MSPU — English teacher',
+            'about.fact2': 'Master\'s degree, HSE — Instructional Design',
+            'about.fact3': 'Eduson course for methodologists',
+            'about.fact4': '6 years in teaching and corporate training',
+            'about.vibecoding': 'Vibecoding LXD Hero',
+            'about.view_cert': 'View certificate',
+            'carousel.swipe': 'Swipe right →',
+            'skills.title': 'Skills & Tools',
+            'skills.skillset': 'Skillset',
+            'skills.methodology': 'Methodology & Design',
+            'skills.lxd': 'Learning Experience Design',
+            'skills.content_dev': 'Content Development',
+            'skills.analytics': 'Analytics',
+            'skills.standards': 'Standards',
+            'skills.additional': 'Additional',
+            'skills.ai': 'Artificial Intelligence',
+            'skills.tools_title': 'Tools',
+            'skills.design': 'Design & Structure',
+            'skills.design_tools': 'Miro,FigJam,SBoard,XMind',
+            'skills.visual': 'Visual Design',
+            'skills.visual_tools': 'Figma,Canva,Adobe Illustrator,PowerPoint',
+            'skills.authoring': 'Course Development',
+            'skills.authoring_tools': 'iSpring Suite,Genially',
+            'skills.lms': 'LMS',
+            'skills.lms_tools': 'Moodle,GetCourse',
+            'skills.pm': 'Project Management',
+            'skills.pm_tools': 'Notion,Trello',
+            'portfolio.title': 'Portfolio',
+            'portfolio.main': 'Main cases',
+            'portfolio.other': 'Other works',
+            'case.task': 'Task',
+            'case.audience': 'Audience',
+            'case.process': 'Process',
+            'case.tools': 'Tools',
+            'case.feedback': 'Feedback',
+            'case.result': 'Result',
+            'case.open_materials': 'Open materials →',
+            'case1.date': 'April 2026',
+            'case1.tag1': 'From scratch',
+            'case1.tag2': 'Corporate training',
+            'case1.tag3': 'Retail sales',
+            'case1.desc': 'E-course on retail sales standards',
+            'case1.task': 'Develop an e-course on retail sales standards for Kerama Marazzi showroom trainees. In 60 minutes — form a holistic understanding of all sales stages and bring basic skills to automaticity.',
+            'case1.audience': 'Retail sales managers, 30–40 years old, 1000+ people. Basic level: they know sales stages theoretically but skip key steps in practice.',
+            'case1.step1': '<strong>Learning outcomes</strong> — defined measurable outcomes for 5 modules: establishing contact, identifying needs, presentation, handling objections, order processing.',
+            'case1.step2': '<strong>Theoretical content</strong> — learning content based on client materials; user positioned as an experienced manager.',
+            'case1.step3': '<strong>Tests and simulators</strong> — starting quiz to determine sales style, dialogue simulators with flexible scoring, final boss-case with different buyer types.',
+            'case1.step4': '<strong>Visual design</strong> — layout in iSpring Suite, visuals in Canva, seamless transitions between blocks.',
+            'case1.testimonial': '"…" — Ekaterina Shulenina, Head of Distance Learning, Kerama Marazzi',
+            'case1.result': 'Ready 60-minute course: 5 modules, dialogue simulators, boss-case, personalized feedback.',
+            'case2.date': 'October – December 2025',
+            'case2.tag1': 'From scratch',
+            'case2.tag2': 'K-12 Education',
+            'case2.tag3': 'Career guidance',
+            'case2.desc': 'Career guidance program for schoolchildren in mining and metallurgy',
+            'case2.task': 'Develop an extracurricular program for grades 8–9 introducing engineering professions in gold mining — through science, experiment, and live interaction.',
+            'case2.audience': 'Schoolchildren grades 8–9, zero knowledge of mining. Main challenge — make complex industry processes understandable and engaging.',
+            'case2.step1': '<strong>Analysis of international practices</strong> — study of STEM career programs of mining and engineering companies, identifying engagement principles.',
+            'case2.step2': '<strong>Program structure design</strong> — three-stage model: Introduction → Immersion → Development.',
+            'case2.step3': '<strong>Lesson development (Stage "Introduction")</strong> — research lesson "Magic of Bubbles" (flotation, 60 min) and final meeting — mini innovation contest with idea presentations.',
+            'case2.step4': '<strong>Methodological package</strong> — complete set: scripts, presentations, evaluation sheets.',
+            'case2.result': 'Career guidance program with methodological package, building a path from zero interest to conscious career choice, with a real career opportunity from the company.',
+            'case3.title': 'HSE University',
+            'case3.date': 'March – April 2026',
+            'case3.tag1': 'Content development',
+            'case3.tag2': 'Higher education',
+            'case3.tag3': 'IT / AI',
+            'case3.desc': 'Refinement and adaptation of an online course on using AI in education',
+            'case3.task': 'Refine course content on AI in education: replace unavailable AI services, universalize assignment wording, bring design to a unified standard.',
+            'case3.audience': 'HSE students and faculty.',
+            'case3.step1': '<strong>AI services audit</strong> — check service relevance, find 3 working alternatives for each non-working one.',
+            'case3.step2': '<strong>Universalization of wording</strong> — develop three universal formulations for each course element meeting all requirements.',
+            'case3.step3': '<strong>Formatting cases and assignments</strong> — bring all materials to a single template.',
+            'case3.step4': '<strong>Course logic check</strong> — preserve educational integrity after changes.',
+            'case3.result': 'Course refined: outdated services replaced, wording universalized, content standardized without breaking educational logic.',
+            'other1.date': 'October – December 2025',
+            'other1.tag1': 'Refactoring',
+            'other1.tag2': 'EdTech',
+            'other1.tag3': 'Digital transformation',
+            'other1.desc': 'Refactoring of the course "Digital Transformation Leader": audit, methodological recommendations, module reassembly.',
+            'other2.title': 'Central University',
+            'other2.date': 'March – May 2026',
+            'other2.tag1': 'Analytics',
+            'other2.tag2': 'Higher education',
+            'other2.tag3': 'IT education',
+            'other2.desc': 'Comparative analysis of programs of leading foreign IT universities, report with visualizations and hypotheses.',
+            'other2.coming_soon': 'coming soon',
+            'other3.title': 'HSE University',
+            'other3.date': 'February – April 2026',
+            'other3.tag1': 'Analytics',
+            'other3.tag2': 'Higher education',
+            'other3.tag3': 'IT education',
+            'other3.desc': 'Program expertise: conducting in-depth interviews, transcription, analysis to identify strengths and weaknesses of the educational program and present them to the client.',
+            'other3.nda': 'NDA',
+            'other4.title': 'Taratorkina School',
+            'other4.date': 'October 2022 – November 2025',
+            'other4.tag1': 'From scratch',
+            'other4.tag2': 'Corporate training',
+            'other4.tag3': 'Foreign languages',
+            'other4.desc': 'Development of English for Marketing and Business English courses (A1-B2 levels). Full cycle of course design (from audience analysis to feedback collection and analysis after implementation).',
+            'other4.nda': 'NDA',
+            'roadmap.title': 'How I work',
+            'roadmap.step1_title': 'Analysis',
+            'roadmap.step1_desc': 'I study the audience, competitors, and market — before thinking about form.',
+            'roadmap.step2_title': 'Structure',
+            'roadmap.step2_desc': 'I build the course logic: outcomes, sequence, workload.',
+            'roadmap.step3_title': 'Design',
+            'roadmap.step3_desc': 'I translate structure into visual language: diagrams, templates, layouts.',
+            'roadmap.step4_title': 'Development',
+            'roadmap.step4_desc': 'I assemble the course in the appropriate tool, ensuring mechanics align with methodology.',
+            'roadmap.step5_title': 'Evaluation',
+            'roadmap.step5_desc': 'I check if it works: alignment with outcomes, logic, feedback. Iterate if needed.',
+            'help.title': 'How I can help',
+            'help1.title': 'Audience, market & competitor analysis',
+            'help1.sub': 'Pre-project context research',
+            'help1.desc': 'I conduct comprehensive pre-project research: target audience, competency gaps, motivational profile, competitive environment. Result — an analytical foundation.',
+            'help2.title': 'Course design from scratch',
+            'help2.sub': 'From outcomes to structure',
+            'help2.desc': 'I formulate measurable learning outcomes using Bloom-Anderson taxonomy and design course architecture (ADDIE/SAM/4C/ID).',
+            'help3.title': 'Content update & refactoring',
+            'help3.sub': 'Audit, revision, adaptation',
+            'help3.desc': 'Methodological audit of a course, identifying gaps, recommendations for improvement, and reassembly of a module as a reference.',
+            'help4.title': 'Visual language & materials design',
+            'help4.sub': 'Design, templates, infographics',
+            'help4.desc': 'I develop a visual system for the course based on Mayer\'s multimedia principles: hierarchy, infographics, templates in Figma/Canva/Illustrator.',
+            'help5.title': 'Course assembly in authoring tools',
+            'help5.sub': 'iSpring · Genially · Moodle',
+            'help5.desc': 'I implement content with interactivity: tests with valid feedback, branching dialogue simulators, scenario-based cases — all methodologically grounded.',
+            'help6.title': 'Analytical research in education',
+            'help6.sub': 'Market, international experience, educational models',
+            'help6.desc': 'Desk research and comparative analysis of educational products and programs: data collection, comparative tables, pattern identification, visualizations, hypotheses for strategic decisions.',
+            'contact.title': 'Contacts',
+            'contact.text': 'Open to any proposal. Get in touch:',
+            'contact.resume': 'View CV'
+        }
+    };
+
+    function applyLanguage(lang) {
+        const t = translations[lang];
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (t[key]) {
+                if (el.classList.contains('methodology-list') || el.classList.contains('tool-tags')) {
+                    const tags = t[key].split(',');
+                    el.innerHTML = tags.map(tag => `<span class="${el.classList.contains('methodology-list') ? 'method-tag' : 'tool-tag'}">${tag.trim()}</span>`).join('');
+                } else {
+                    el.innerHTML = t[key];
+                }
+            }
+        });
+        document.querySelectorAll('.work-material-link span, .material-link span').forEach(el => {
+            el.textContent = t['case.open_materials'];
+        });
+        document.querySelector('.footer-note').innerHTML = `© 2026 Maria Kartasheva · Instructional Designer`;
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.lang === lang) btn.classList.add('active');
+        });
+        document.documentElement.lang = lang;
+    }
+
+    function renderHelpAccordions(lang) {
+        const container = document.getElementById('help-accordions');
+        const t = translations[lang];
+        const items = [
+            { title: t['help1.title'], sub: t['help1.sub'], desc: t['help1.desc'], id: 'help1' },
+            { title: t['help2.title'], sub: t['help2.sub'], desc: t['help2.desc'], id: 'help2' },
+            { title: t['help3.title'], sub: t['help3.sub'], desc: t['help3.desc'], id: 'help3' },
+            { title: t['help4.title'], sub: t['help4.sub'], desc: t['help4.desc'], id: 'help4' },
+            { title: t['help5.title'], sub: t['help5.sub'], desc: t['help5.desc'], id: 'help5' },
+            { title: t['help6.title'], sub: t['help6.sub'], desc: t['help6.desc'], id: 'help6' }
+        ];
+        container.innerHTML = items.map(item => `
+            <div class="help-accordion">
+                <div class="help-header" data-target="${item.id}">
+                    <div><h3>${item.title}</h3><div class="help-sub">${item.sub}</div></div>
+                    <i class="fas fa-chevron-down accordion-icon"></i>
+                </div>
+                <div class="help-content" id="${item.id}"><p>${item.desc}</p></div>
+            </div>
+        `).join('');
+        document.querySelectorAll('.help-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const targetId = this.dataset.target;
+                const content = document.getElementById(targetId);
+                const icon = this.querySelector('.accordion-icon');
+                if (content) {
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        content.style.display = 'block';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                }
+            });
+        });
+    }
+
+    function switchLanguage(lang) {
+        applyLanguage(lang);
+        renderHelpAccordions(lang);
+        
+        // Update dynamic titles that are not handled by data-i18n
+        const case2Title = document.querySelector('.accordion-case:nth-of-type(2) .case-title-section h3');
+        const case3Title = document.querySelector('.accordion-case:nth-of-type(3) .case-title-section h3');
+        const workCard2Title = document.querySelector('.other-works-wrapper .work-card:nth-child(2) h4');
+        const workCard3Title = document.querySelector('.other-works-wrapper .work-card:nth-child(3) h4');
+        const workCard4Title = document.querySelector('.other-works-wrapper .work-card:nth-child(4) h4');
+        
+        if (lang === 'ru') {
+            if (case2Title) case2Title.textContent = 'Highland Gold (Ареал)';
+            if (case3Title) case3Title.textContent = 'ВШЭ';
+            if (workCard2Title) workCard2Title.textContent = 'Центральный университет';
+            if (workCard3Title) workCard3Title.textContent = 'ВШЭ';
+            if (workCard4Title) workCard4Title.textContent = 'Taratorkina School';
+        } else {
+            if (case2Title) case2Title.textContent = 'Highland Gold (Areal)';
+            if (case3Title) case3Title.textContent = 'HSE University';
+            if (workCard2Title) workCard2Title.textContent = 'Central University';
+            if (workCard3Title) workCard3Title.textContent = 'HSE University';
+            if (workCard4Title) workCard4Title.textContent = 'Taratorkina School';
+        }
+    }
+
+    function initCarouselDrag(sliderId) {
+        const slider = document.getElementById(sliderId);
+        if (!slider) return;
+        
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('dragging');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('dragging');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('dragging');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        }, {passive: true});
+
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        }, {passive: true});
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        applyLanguage('ru');
+        renderHelpAccordions('ru');
+        initCarouselDrag('factsCarousel');
+        initCarouselDrag('otherWorksCarousel');
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                if (lang) switchLanguage(lang);
+            });
+        });
+
+        document.querySelectorAll('.accordion-case .case-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const targetId = this.dataset.target;
+                const content = document.getElementById(targetId);
+                const icon = this.querySelector('.accordion-icon');
+                if (content) {
+                    content.classList.toggle('active');
+                    icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === "#" || href === "") return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    });
+</script>
+<style>
+    .help-content { display: none; }
+    .case-content { transition: all 0.2s; }
+    .accordion-icon { transition: transform 0.3s; }
+    .btn, .work-card { cursor: pointer; }
+    .lang-btn:disabled { cursor: default; opacity: 0.5; }
+</style>
+</body>
+</html>
