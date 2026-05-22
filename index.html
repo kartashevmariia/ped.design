@@ -564,6 +564,12 @@
             color: #7d0907;
             font-size: 0.95rem;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .coming-soon i {
+            color: #c5111a;
         }
         
         .roadmap { 
@@ -752,18 +758,32 @@
             <div class="facts-carousel-wrapper" id="factsCarousel">
                 <div class="fact-item" data-i18n="about.fact1">Красный диплом МПГУ — учитель английского языка</div>
                 <div class="fact-item" data-i18n="about.fact2">Магистратура ВШЭ — педагогический дизайн</div>
-                <div class="fact-item" data-i18n="about.fact3">Курс Eduson для методистов</div>
+                <div class="fact-item">
+                    <div class="fact-item-content" data-i18n="about.fact3">Курс для методистов, Eduson</div>
+                    <div class="coming-soon">
+                        <i class="fas fa-hourglass-half"></i> 
+                        <span data-i18n="carousel.coming_soon">скоро появится</span>
+                    </div>
+                </div>
                 <div class="fact-item" data-i18n="about.fact4">6 лет в преподавании и корпоративном обучении</div>
                 <div class="fact-item">
-                    <div class="fact-item-content" data-i18n="about.vibecoding">Вайбкодинг LXD Hero</div>
+                    <div class="fact-item-content" data-i18n="about.vibecoding">Вайбкодинг, LXD Hero</div>
                     <a class="cert-link" href="https://disk.yandex.ru/i/6igYZMGtaelNJQ" target="_blank">
                         <i class="fas fa-folder-open"></i> <span data-i18n="about.view_cert">Смотреть сертификат</span> →
                     </a>
                 </div>
+                <!-- Новый блок: Курс по нарративному дизайну -->
+                <div class="fact-item">
+                    <div class="fact-item-content" data-i18n="about.cg_course">Курс по нарративному дизайну и сторителлингу, CG Education</div>
+                    <div class="coming-soon">
+                        <i class="fas fa-hourglass-half"></i> 
+                        <span data-i18n="carousel.coming_soon">скоро появится</span>
+                    </div>
+                </div>
             </div>
             <div class="carousel-hint">
                 <i class="fas fa-arrow-right"></i>
-                <span data-i18n="carousel.swipe">Листайте вправо →</span>
+                <span data-i18n="carousel.swipe">Листайте вправо</span>
             </div>
         </div>
     </section>
@@ -889,8 +909,6 @@
                 <h4 data-i18n="case.tools">Инструменты</h4>
                 <p>iSpring Suite · Canva · Miro · Gemini</p>
                 <a class="material-link" href="https://disk.yandex.ru/d/eS5POu34qgN45Q" target="_blank"><i class="fas fa-folder-open"></i> <span data-i18n="case.open_materials">Открыть материалы →</span></a>
-                <h4 data-i18n="case.feedback">Отзыв</h4>
-                <div class="testimonial" data-i18n="case1.testimonial">«…» — Екатерина Шуленина, руководитель направления ДО, Kerama Marazzi</div>
                 <h4 data-i18n="case.result">Результат</h4>
                 <p data-i18n="case1.result">Готовый курс 60 минут: 5 модулей, диалоговые тренажёры, босс-кейс, персонализированная обратная связь.</p>
             </div>
@@ -995,7 +1013,7 @@
             </div>
             <div class="carousel-hint">
                 <i class="fas fa-arrow-right"></i>
-                <span data-i18n="carousel.swipe">Листайте вправо →</span>
+                <span data-i18n="carousel.swipe">Листайте вправо</span>
             </div>
         </div>
     </section>
@@ -1051,11 +1069,13 @@
             'about.p3': 'Планирую, но умею адаптироваться. Аргументирую решения теорией или проверенными фактами. Сейчас углубляюсь в UX/UI — и продолжаю учиться.',
             'about.fact1': 'Красный диплом МПГУ — учитель английского языка',
             'about.fact2': 'Магистратура ВШЭ — педагогический дизайн',
-            'about.fact3': 'Курс Eduson для методистов',
+            'about.fact3': 'Курс для методистов, Eduson',
             'about.fact4': '6 лет в преподавании и корпоративном обучении',
             'about.vibecoding': 'Вайбкодинг LXD Hero',
+            'about.cg_course': 'Курс по нарративному дизайну и сторителлингу, CG Education',
             'about.view_cert': 'Смотреть сертификат',
-            'carousel.swipe': 'Листайте вправо →',
+            'carousel.swipe': 'Листайте вправо',
+            'carousel.coming_soon': 'скоро появится',
             'skills.title': 'Навыки и инструменты',
             'skills.skillset': 'Скиллсет',
             'skills.methodology': 'Методология и проектирование',
@@ -1097,7 +1117,6 @@
             'case1.step2': '<strong>Теоретическое содержание</strong> — учебный контент на основе материалов заказчика; позиционирование пользователя как опытного менеджера.',
             'case1.step3': '<strong>Тесты и тренажёры</strong> — стартовый квиз для определения стиля продаж, диалоговые тренажёры с гибкой шкалой оценки, финальный босс-кейс с разными типами покупателей.',
             'case1.step4': '<strong>Визуальное оформление и дизайн</strong> — вёрстка в iSpring Suite, визуал в Canva, бесшовный переход между блоками.',
-            'case1.testimonial': '«…» — Екатерина Шуленина, руководитель направления ДО, Kerama Marazzi',
             'case1.result': 'Готовый курс 60 минут: 5 модулей, диалоговые тренажёры, босс-кейс, персонализированная обратная связь.',
             'case2.date': 'октябрь – декабрь 2025',
             'case2.tag1': 'Разработка с нуля',
@@ -1198,9 +1217,11 @@
             'about.fact2': 'Master\'s degree, HSE — Instructional Design',
             'about.fact3': 'Eduson course for methodologists',
             'about.fact4': '6 years in teaching and corporate training',
-            'about.vibecoding': 'Vibecoding LXD Hero',
+            'about.vibecoding': 'Vibecoding, LXD Hero',
+            'about.cg_course': 'Narrative Design & Storytelling Course by CG Education',
             'about.view_cert': 'View certificate',
-            'carousel.swipe': 'Swipe right →',
+            'carousel.swipe': 'Swipe right',
+            'carousel.coming_soon': 'coming soon',
             'skills.title': 'Skills & Tools',
             'skills.skillset': 'Skillset',
             'skills.methodology': 'Methodology & Design',
@@ -1242,7 +1263,6 @@
             'case1.step2': '<strong>Theoretical content</strong> — learning content based on client materials; user positioned as an experienced manager.',
             'case1.step3': '<strong>Tests and simulators</strong> — starting quiz to determine sales style, dialogue simulators with flexible scoring, final boss-case with different buyer types.',
             'case1.step4': '<strong>Visual design</strong> — layout in iSpring Suite, visuals in Canva, seamless transitions between blocks.',
-            'case1.testimonial': '"…" — Ekaterina Shulenina, Head of Distance Learning, Kerama Marazzi',
             'case1.result': 'Ready 60-minute course: 5 modules, dialogue simulators, boss-case, personalized feedback.',
             'case2.date': 'October – December 2025',
             'case2.tag1': 'From scratch',
