@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Мария Карташева | Разработка AI-элементов и курсов</title>
+    <!-- Montserrat + Font Awesome 6 -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            background-color: #fdf6e8;
+            color: #1e1e2a;
+            line-height: 1.45;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header */
+        .main-header {
+            padding: 32px 0 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .identity h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #c5111a;
+        }
+        .identity p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #4a4a5a;
+            margin-top: 4px;
+        }
+        .photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #c5111a20;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* hero */
+        .hero {
+            padding: 64px 0 48px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e1e2a 0%, #c5111a 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            max-width: 800px;
+            margin: 0 auto 24px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background-color: #c5111a;
+            color: white;
+            box-shadow: 0 2px 6px rgba(197,17,26,0.2);
+        }
+        .btn-primary:hover {
+            background-color: #a00e16;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1.5px solid #c5111a;
+            color: #c5111a;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: #c5111a10;
+            transform: translateY(-2px);
+        }
+
+        /* tech stack */
+        .tech-section {
+            padding: 48px 0;
+            border-top: 1px solid #e9dfcf;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #2c2c3a;
+            border-left: 5px solid #c5111a;
+            padding-left: 18px;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+        }
+        .tech-card {
+            background: #fffcf5;
+            border-radius: 24px;
+            padding: 20px 18px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+            border: 1px solid #f0e5d8;
+            transition: 0.2s;
+        }
+        .tech-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #c5111a;
+        }
+        .tech-badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .tech-badge {
+            background: #f2ebdf;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #2c2c3a;
+        }
+
+        /* projects */
+        .projects-section {
+            padding: 48px 0;
+        }
+        .accordion-item {
+            background: #fffcf5;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            border: 1px solid #f0e5d8;
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            cursor: pointer;
+            background: #ffffffd9;
+            transition: background 0.2s;
+        }
+        .accordion-header:hover {
+            background: #fff9f0;
+        }
+        .accordion-header h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1e1e2a;
+        }
+        .accordion-header i {
+            font-size: 1.2rem;
+            color: #c5111a;
+            transition: transform 0.2s;
+        }
+        .accordion-content {
+            padding: 0 24px 24px 24px;
+            display: none;
+            border-top: 1px solid #f0e5d8;
+            background: #fefaf3;
+        }
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0 12px;
+            background: #c5111a10;
+            padding: 8px 20px;
+            border-radius: 40px;
+            color: #c5111a;
+            font-weight: 500;
+            text-decoration: none;
+            border: 1px solid #c5111a30;
+            transition: 0.2s;
+        }
+        .demo-link:hover {
+            background: #c5111a;
+            color: white;
+        }
+        .ndabadge {
+            color: #c5111a;
+            font-weight: 700;
+            background: #c5111a10;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 12px;
+            display: inline-block;
+        }
+        .tools-list {
+            font-size: 0.95rem;
+            margin: 10px 0 5px;
+            color: #4a4a5a;
+            font-weight: 400;
+        }
+        .bold-text {
+            font-weight: 700;
+            color: #1e1e2a;
+        }
+        .feature-item {
+            margin: 16px 0 8px;
+            font-weight: 500;
+            color: #1e1e2a;
+        }
+        /* вложенные аккордеоны промптов */
+        .prompt-subaccordion {
+            margin: 12px 0 16px 20px;
+            background: #f6efe5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .prompt-subheader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #c5111a;
+            background: #f0e5d8;
+        }
+        .prompt-subcontent {
+            display: none;
+            padding: 16px 20px;
+            background: #fffbf5;
+        }
+        .prompt-subaccordion.active .prompt-subcontent {
+            display: block;
+        }
+        .prompt-subaccordion.active .prompt-subheader i {
+            transform: rotate(180deg);
+        }
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            font-family: 'Montserrat', monospace;
+            font-size: 0.9rem;
+            font-weight: 400;
+            background: #f2e8dc;
+            padding: 16px;
+            border-radius: 16px;
+            margin: 0;
+            border-left: 3px solid #c5111a;
+            color: #2c2c3a;
+        }
+
+        /* process */
+        .process-section {
+            padding: 48px 0;
+            background: #fcf6ec;
+            border-radius: 48px;
+            margin: 20px 0;
+        }
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .step {
+            flex: 1;
+            background: white;
+            border-radius: 28px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #f0e5d8;
+        }
+        .step i {
+            font-size: 2.2rem;
+            color: #c5111a;
+            margin-bottom: 16px;
+        }
+        .step h3 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .step p {
+            font-weight: 400;
+        }
+
+        /* contacts — как в основном портфолио (карточки с иконками) */
+        .contacts-section {
+            padding: 56px 0 40px;
+            text-align: center;
+        }
+        .contacts-section .section-title {
+            border-left: none;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .contacts-sub {
+            font-size: 1.1rem;
+            color: #4a4a5a;
+            margin-bottom: 32px;
+        }
+        .contacts-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        .contact-card {
+            background: #fffcf5;
+            border-radius: 24px;
+            padding: 24px 32px;
+            min-width: 180px;
+            text-align: center;
+            border: 1px solid #f0e5d8;
+            transition: 0.2s;
+        }
+        .contact-card i {
+            font-size: 2rem;
+            color: #c5111a;
+            margin-bottom: 12px;
+        }
+        .contact-card .contact-label {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #1e1e2a;
+        }
+        .contact-card a {
+            font-weight: 400;
+            text-decoration: none;
+            color: #4a4a5a;
+            font-size: 1rem;
+        }
+        .contact-card a:hover {
+            color: #c5111a;
+        }
+        .portfolio-button {
+            display: inline-block;
+            background-color: #c5111a;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .portfolio-button:hover {
+            background-color: #a00e16;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0 40px;
+            border-top: 1px solid #e9dfcf;
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #6b6b7a;
+            font-weight: 400;
+        }
+        @media (max-width: 700px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .accordion-header h3 {
+                font-size: 1.1rem;
+            }
+            .container {
+                padding: 0 20px;
+            }
+            .contact-card {
+                padding: 20px;
+                min-width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container header-inner">
+        <div class="identity">
+            <h1>Карташева Мария</h1>
+            <p>педагогический дизайнер</p>
+        </div>
+        <div class="photo">
+            <img src="https://i.imgur.com/2refg4B.jpeg" alt="Мария Карташева">
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h2>Разработка элементов и целых курсов с помощью ИИ</h2>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">посмотреть кейсы</a>
+                <a href="#contacts" class="btn btn-outline">связаться</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-title">Технологический стек</div>
+            <div class="tech-grid">
+                <div class="tech-card"><h3><i class="fas fa-comment-dots"></i> Текст</h3><div class="tech-badge-list"><span class="tech-badge">Claude Sonnet 4.6</span><span class="tech-badge">ChatGPT</span><span class="tech-badge">Gemini 3.1</span></div></div>
+                <div class="tech-card"><h3><i class="fas fa-image"></i> Изображения</h3><div class="tech-badge-list"><span class="tech-badge">NanoBanana</span><span class="tech-badge">MidJourney</span><span class="tech-badge">GPT Image</span></div></div>
+                <div class="tech-card"><h3><i class="fas fa-video"></i> Видео</h3><div class="tech-badge-list"><span class="tech-badge">Google Veo 3</span><span class="tech-badge">Kling</span><span class="tech-badge">HeyGen</span></div></div>
+                <div class="tech-card"><h3><i class="fas fa-code"></i> No‑code</h3><div class="tech-badge-list"><span class="tech-badge">Qwen Coder</span><span class="tech-badge">DeepSeek</span><span class="tech-badge">ChatGPT</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-title">Примеры работ</div>
+
+            <!-- Проект 1 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Презентация команды на конкурс методистов</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-text">О разработке:</span> Краткая презентация (не более 2 мин.) команды разработчиков для конкурса. Полная генерация концепции, персонажей и визуального стиля.</p>
+                    <p class="tools-list"><span class="bold-text">Инструменты:</span> Claude Sonnet 4.6, Nano Banana, Canva</p>
+                    
+                    <!-- Функции ИИ вынесены в основной аккордеон -->
+                    <div class="feature-item">— Генерация ЛОРа презентации</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader">
+                            <span>Посмотреть промпт</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="prompt-subcontent">
+                            <pre>Мне необходимо разработать концепцию (ЛОР) презентации команды для конкурса разработчиков ЭК, которая представит каждого участника и объяснит, как команда появилась. Участников 3, будем обозначать их У1, У2 и У3. Подробнее о каждом из них: … . В разрабатываемом сюжете важно учесть концепцию конкурса: рейв, неон, hightech … . К ней хочу добавить космические элементы. Задавай вопросы, если тебе не хватает информации для детальной проработки концепции, приступай к разработке каждой концепции отдельно, только после того, как мы утвердим все элементы. Необходимо представить 3 концепции, они не должны быть похожи друг на друга по сюжету и стилю повествования, но каждая должна подсвечивать сильные стороны участников, их навыки.</pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">— Создание персонажей (разработка персонажей в стиле Rick and Morty)</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader">
+                            <span>Посмотреть промпт</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="prompt-subcontent">
+                            <pre>Full body character design sheet of a young fashionable woman in the style of Rick and Morty. Show a complete cartoon character turnaround sheet / model sheet with full body views, focused on consistent character design, clean silhouette, and accurate appearance. She has a slim elongated feminine build, narrow shoulders, long graceful arms, slender hands, and long legs. Fair smooth skin with a cool-neutral tone. Face is soft oval and slightly elongated, with delicate refined features. Very long straight blonde hair, center-parted, sleek, symmetrical, and falling far below the chest, with a light blonde to dark ash blonde tone. Light thin eyebrows with a soft natural arch. Small straight nose. Medium-full lips, lower lip slightly fuller, muted rosy nude tone. She wears narrow cat-eye sunglasses with a thin silver frame and dark gray lenses. Long slender neck. Minimal jewelry: a thin gold chain necklace and very small subtle earrings. Long almond-shaped nails with glossy milky white manicure. Outfit: fitted long ribbed knit dress in dark gray graphite color, long tight sleeves, simple round neckline, clean minimal modern fashion look, body-contouring silhouette, no extra decorations. Character expression and overall vibe: calm, stylish, confident, slightly aloof, polished modern glam aesthetic. Design sheet format: front view, 3/4 view, side view, back view, and full body turnaround consistency. Optional small facial expression headshots in the same style. Keep the artwork clearly in Rick and Morty style: bold clean outlines, flat cel shading, simplified cartoon anatomy, slightly exaggerated head and eyes, stylized adult animated proportions, clean color blocking, professional animation model sheet presentation, white or neutral plain background, no complex environment, no dramatic pose emphasis. The background has to be transparent, png format.</pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">— Разработка иллюстраций полностью</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader">
+                            <span>Посмотреть промпт</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="prompt-subcontent">
+                            <pre>Та же структура промпта: детальное описание всех персонажей + референсы, описание фона и фоновых элементов. Для каждой сцены генерировались отдельные изображения с соблюдением единого стиля.</pre>
+                        </div>
+                    </div>
+
+                    <a href="https://disk.yandex.ru/d/l0eRId6EXAeXPw" target="_blank" class="demo-link"><i class="fas fa-folder-open"></i> Посмотреть разработку</a>
+                </div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Оформление КП для Самолет</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-text">О разработке:</span> Презентация концепции мероприятия от ивент-агентства. Разработка визуального оформления по ББ и гайдлайну Самолет.</p>
+                    <p class="tools-list"><span class="bold-text">Инструменты:</span> Nano Banana, Canva AI, Canva</p>
+                    
+                    <div class="feature-item">— Генерация значка со сложным сюжетом (офис как Навигационный Центр Будущего)</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader">
+                            <span>Посмотреть промпт</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="prompt-subcontent">
+                            <pre>Технические требования:
+- Квадратная форма
+- Прозрачный фон
+- Стиль: мультипликационный, графика, одна линия
+- Цвет линий: белый, одинаковой толщины
+- Без текста
+- Уровень детализации: сложное изображение с множеством элементов, внутри которого должен быть сюжет
+
+Концепция: Офис превращается в Навигационный Центр Будущего, где дети проходят квест как «Путешественники во времени», а их родители и коллеги выступают в роли Штурманов департаментов, чья задача — настроить верный курс, чтобы «Город Завтра» был построен без ошибок и с заботой.
+
+Обязательные элементы:
+- Дома и город (для «Города Завтра»)
+- Часы и стрелка времени (для путешественников во времени)
+- Компас и навигация (для штурманов)
+- Детские и взрослые силуэты
+
+Композиция: Взрослый (штурман) показывает путь ребенку (путешественнику во времени) на фоне города, часов и компаса, создавая сюжет о совместном путешествии в будущее. Важно: изображение должно быть в стиле значка, но содержать сложный сюжет внутри своей формы. Все элементы должны быть выполнены белыми линиями на прозрачном фоне.</pre>
+                        </div>
+                    </div>
+
+                    <a href="https://disk.yandex.ru/i/GkuIdElCKzn5Bg" target="_blank" class="demo-link"><i class="fas fa-folder-open"></i> Посмотреть разработку</a>
+                </div>
+            </div>
+
+            <!-- Проект 3 NDA -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Разработка ИИ-агента <span class="ndabadge">Разработка под NDA</span></h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-text">О разработке:</span> ИИ-агент по администрированию расписания, синхронизирован с Google-календарем учителя. Когда ученик пишет «Перенести занятие на [день недели, время]» в чат с учителем, бот проверяет наличие этого слота в календаре, переносит занятие и отправляет уведомление ученику в чат. Далее учитель сам высылает ссылку и проводит занятие в определенное время.</p>
+                    <p class="tools-list"><span class="bold-text">Инструменты:</span> ChatGPT, Agent Builder</p>
+                    <p style="margin-top: 16px; font-style: italic; color:#c5111a;">Детали архитектуры и промпты по согласованию с заказчиком (NDA).</p>
+                </div>
+            </div>
+
+            <!-- Проект 4 Бриф -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Бриф для методистов</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-text">О разработке:</span> Бриф интерактивного курса на 60 минут с описанием целей, задач и наполнением, цель создания которого – согласование с командой разработки и экспертом.</p>
+                    <p class="tools-list"><span class="bold-text">Инструменты:</span> Claude Sonnet 4.6, PerplexityAI</p>
+                    
+                    <div class="feature-item">— Конкурентный анализ (3 российских и 3 зарубежных курса)</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader"><span>Посмотреть промпт</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="prompt-subcontent">
+                            <pre>Мне нужна помощь в решении тестового задания, в рамках которого мне необходимо составить бриф интерактивного курса на 60 минут по теме «Как провести A/В-тестирование». Для этого мы с тобой будем работать в связке, как два методиста.
+
+Ты – разработчик электронных курсов со стажем более 5 лет, специализируешься на корпоративном обучении, B2B сектор. В рамках разработки мы с тобой делим задачи, тебе необходимо: 
+1) Провести конкурентный анализ продуктов с идентичной и смежной тематикой. В составе анализируемых курсов обязательно должно быть прямое упоминание A/B-тестирования; 
+2) Составить портрет целевой аудитории на основе проведенного конкурентного анализа. 
+
+Мы идем от пункта к пункту, обсуждаем содержание каждого из них. Переходим к следующему пункту только после утверждения содержания предыдущего. Задавай мне вопросы, чтобы узнать мое мнение и больше информации, ты можешь оспаривать мою позицию, приводя аргументы. 
+
+Начинаем с анализа конкурентов, для этого:
+1) Найди 3 российских и 3 зарубежных курсов, предоставь мне прямые ссылки на их лендинги для согласования;
+2) После согласования ознакомься с содержанием сайтов, найди «опорные точки» – информацию о курсе, которая присутствует в 90% страницах. Согласуй их со мной;
+3) После корректировки пунктов анализа подготовь сводную аналитическую таблицу по 6 курсам.</pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">— Портрет целевой аудитории</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader"><span>Посмотреть промпт</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="prompt-subcontent">
+                            <pre>Перейдем к составлению портрета ЦА. Работаем по следующему алгоритму: 
+1) Вернись к сайтам продуктов, которые мы проанализировали и вытащи всю информацию, которая касается их целевой аудитории. Подготовь нумерованный или маркированный список характеристик. Для каждого пункта списка давай ссылку на сайт, с которого ты взял информацию 
+2) После согласования списка выдели основные характеристики, которые пересекаются в минимум 60% источников. Представь в формате таблицы: категория характеристики (возраст, пол, опыт работы, место работы) левая колонка, данные в центральной колонке, сайты, на которых нашел информацию – правая колонка. Отправь мне таблицу для доработки; 
+3) После финализации таблицы, составь краткое описание для лендинга нашего брифа + подготовь более детальное, но сжатое описание ЦА для команды методистов, которая будет просматривать бриф.</pre>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">— Составление структуры курса по образовательным результатам</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader"><span>Посмотреть промпт</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="prompt-subcontent">
+                            <pre>У нас есть список источников: <…> и сформулированные образовательные результаты, которых достигнет пользователь в результате прохождения курса: <…>. Тебе необходимо предложить такую структуру программы, которая должна покрыть все ОРы и задействовать все найденные источники. Учитывай особенности ЦА, которые мы выявили и временное ограничение – в 60 минут, формат курса – микрообучение. Упор необходимо сделать на практику. Представь в формате списка, который будет структурирован следующим образом: 
+Тематический блок – название (краткий нейминг) 
+Используемые источники 
+Нумерованный список с содержательными подблоками 
+Покрываемые ОР 
+После формирования общего видения и его окончательного согласования перейдем к итеративной доработке и наполнению каждого блока по-отдельности.</pre>
+                        </div>
+                    </div>
+
+                    <a href="https://www.notion.so/Eduson-3540a9918110803d885adaaa576aa24a?source=copy_link" target="_blank" class="demo-link"><i class="fas fa-folder-open"></i> Посмотреть разработку (Notion)</a>
+                </div>
+            </div>
+
+            <!-- Проект 5 Метрики -->
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Определение метрик для аналитического отчета опыта студентов на программе</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><span class="bold-text">О разработке:</span> Аналитика Отчетов по элементам курса и Опросу пользователей, формулирование рекомендаций для дальнейшей итеративной доработки курсов и улучшения пользовательского опыта.</p>
+                    <p class="tools-list"><span class="bold-text">Инструменты:</span> Gemini 3.1</p>
+                    
+                    <div class="feature-item">— Формулирование метрик для анализа эффективности программы и пользовательского опыта</div>
+                    <div class="prompt-subaccordion">
+                        <div class="prompt-subheader"><span>Посмотреть промпт</span><i class="fas fa-chevron-down"></i></div>
+                        <div class="prompt-subcontent">
+                            <pre>Я – педагогический дизайнер, сейчас занимаюсь анализом опыта студентов на программе магистратуры «Управление цифровыми продуктами», сайт программы: … .
+
+Ты – продуктовый менеджер с опытом в аналитике метрик более 3-х лет. Твоя задача: помочь мне провести анализ программ, а именно: на основе файлов, которые я тебе предоставлю, определить список метрик, которые я могу проанализировать, чтобы определить эффективность программы, дисциплин внутри нее и пользовательский опыт. 
+
+Из данных у меня есть Отчет по элементам для каждой дисциплины, а также Опрос студентов, включащий открытые вопросы и шкалу Лейкерта. Я предоставлю тебе эти документы по одной дисциплине, т.к. у других документация такая же.
+
+Предоставь мне список метрик для анализа в форме таблицы, со следующими колонками: 
+метрика – файл, в котором есть ее показатели – для чего нужна</pre>
+                        </div>
+                    </div>
+
+                    <a href="https://docs.google.com/document/d/11IAi3-Olxcg09YXnHNS90pq4ct1YnUEpiRonhhTLUqE/edit?usp=sharing" target="_blank" class="demo-link"><i class="fas fa-folder-open"></i> Посмотреть разработку (Google Docs)</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <div class="section-title">Как я работаю</div>
+            <div class="process-steps">
+                <div class="step"><i class="fas fa-pen-fancy"></i><h3>1. Формулирование промпта</h3><p>Точная постановка задачи, контекст, ожидаемый формат и итеративные уточнения.</p></div>
+                <div class="step"><i class="fas fa-arrows-spin"></i><h3>2. Итеративная доработка</h3><p>Тестирование гипотез, A/B промптов, улучшение точности и контроля над выводом.</p></div>
+                <div class="step"><i class="fas fa-check-circle"></i><h3>3. Финальная оценка и согласование</h3><p>Согласование с бизнес-метриками, проверка качества, внедрение в рабочий процесс.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты в стиле основного портфолио: карточки с иконками -->
+    <section id="contacts" class="contacts-section">
+        <div class="container">
+            <div class="section-title">Контакты</div>
+            <div class="contacts-sub">Готова обсудить любое предложение. Свяжитесь со мной:</div>
+            <div class="contacts-cards">
+                <div class="contact-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="contact-label">Телефон</div>
+                    <a href="tel:+79771108661">+7 (977) 110-86-61</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <div class="contact-label">Почта</div>
+                    <a href="mailto:kartashevm-edtech@yandex.ru">kartashevm-edtech@yandex.ru</a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-telegram"></i>
+                    <div class="contact-label">Telegram</div>
+                    <a href="https://t.me/mash1naa" target="_blank">@mash1naa</a>
+                </div>
+            </div>
+            <a href="https://kartashevmariia.github.io/ped.design/" target="_blank" class="portfolio-button">Смотреть портфолио педагогического дизайнера</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 Карташева Мария — педагогический дизайн + разработка AI-элементов</p>
+    </div>
+</footer>
+
+<script>
+    // основные аккордеоны проектов
+    const accordions = document.querySelectorAll('.accordion-item');
+    accordions.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        if(header) {
+            header.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        }
+    });
+
+    // вложенные аккордеоны промптов
+    const subAccordions = document.querySelectorAll('.prompt-subaccordion');
+    subAccordions.forEach(sub => {
+        const header = sub.querySelector('.prompt-subheader');
+        if(header) {
+            header.addEventListener('click', (e) => {
+                e.stopPropagation();
+                sub.classList.toggle('active');
+            });
+        }
+    });
+</script>
+</body>
+</html>
